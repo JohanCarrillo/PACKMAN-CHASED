@@ -1,5 +1,10 @@
 import pygame
 
+# 1: empty space
+# 2: cookie
+# 3: wall
+# 4: ghost zone
+# 6: super cookie
 board_skelleton = [
 	[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
 	[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
@@ -40,9 +45,19 @@ board_skelleton = [
 ]
 
 class Board():
-  def __init__(self):
-    self.score
-    self.lives
+	def __init__(self, score: int, lives: int) -> None:
+		self.score = score
+		self.lives = lives
 
-  def update(self):
-    pass
+	def update(self):
+		""" calculate next board state:
+					update positions, eaten cookies, state of characters
+		"""
+
+		self.lives -= self.lives
+		if self.lives == 0:
+			# gameover
+			pass
+		else:
+			# continue game
+			pass
